@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faGear, faBars, faHouseChimney, faCarSide, faFileInvoiceDollar, faChevronRight
  } from '@fortawesome/free-solid-svg-icons';
+import MenuOption from '../../ui/MenuOption';
 
 const Menu = () => {
   const [open, setOpen] = useState(true)
@@ -24,8 +25,11 @@ const Menu = () => {
             </div>
         </header>
         <div className='Body'>
-          <nav>
-
+          <nav className={`h-screen bg-black opacity-70 text-[#CCCCCC] pt-[20px] ${open ? 'w-[275px]':'w-[0px]'} transition-all duration-300`}> 
+            <MenuOption icon='faHouseChimney' text='Inicio' />
+            <MenuOption icon='faHouseChimney' text='Maestros' />
+            <MenuOption icon='faHouseChimney' text='Procesos' />
+            <MenuOption icon='faHouseChimney' text='Reportes' />
           </nav>
         </div>
     </div>
