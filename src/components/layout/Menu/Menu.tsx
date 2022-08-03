@@ -25,7 +25,7 @@ const Menu = () => {
             </div>
         </header>
         <div className='Body'>
-          <nav className={`h-screen bg-black opacity-70 text-[#CCCCCC] pt-[20px] ${open ? 'w-[275px]':'w-[0px]'} transition-all duration-300`}> 
+          <nav className={`h-screen bg-black opacity-70 text-[#CCCCCC] pt-[20px] ${open ? 'w-[0px]':'w-[275px]'} duration-300`}> 
             <MenuOption icon='faHouseChimney' text='Inicio' />
             <MenuOption icon='faHouseChimney' text='Maestros' />
             <MenuOption icon='faHouseChimney' text='Procesos' />
