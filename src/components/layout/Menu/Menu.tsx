@@ -6,6 +6,7 @@ import {
   faGear, faBars, faHouseChimney, faCarSide, faFileInvoiceDollar, faChevronRight
  } from '@fortawesome/free-solid-svg-icons';
 import MenuOption from '../../ui/MenuOption';
+import UserInfo from '../UserInfo';
 
 const Menu = () => {
   const [open, setOpen] = useState(true)
@@ -24,13 +25,18 @@ const Menu = () => {
               <UserPic width='40px' height='40px' />              
             </div>
         </header>
-        <div className='Body'>
+        <div className='Body flex relative'>
           <nav className={`h-screen bg-black opacity-70 text-[#CCCCCC] pt-[20px] ${open ? 'w-[0px]':'w-[275px]'} duration-300`}> 
             <MenuOption icon='faHouseChimney' text='Inicio' />
             <MenuOption icon='faHouseChimney' text='Maestros' />
             <MenuOption icon='faHouseChimney' text='Procesos' />
             <MenuOption icon='faHouseChimney' text='Reportes' />
           </nav>
+          <div className='Content'>
+            <div className='absolute left-[544px] top-[244px]'>
+              <UserInfo nombre='Juan Pablo Ramirez' cargo='Facturacion' />
+            </div>
+          </div>
         </div>
     </div>
   )
