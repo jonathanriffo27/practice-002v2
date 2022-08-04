@@ -20,9 +20,9 @@ const MenuOption = ({icon, text, subMenu}:any) => {
           <FontAwesomeIcon icon={faChevronRight} className={`h-[16px] w-[10px] text-[#CCCCCC] ${open && 'rotate-90'}`} />
         </div> : null }          
       </button>
-      {subMenu && <div className={`bg-black.5 w-[275px] text-white duration-300 ${open ? 'h-auto' : 'h-0 overflow-hidden'}`}>
+      {subMenu && <div className={`bg-black.5 w-[275px] text-white transition-all duration-200 ${!open ? 'h-0' : 'h-[220px]'}`}>
         {subMenu.map((item:any):any => <button key={item}
-                                           className='py-[10px] text-left pl-[60px] hover:bg-black w-full text-[#CCCCCC] focus:text-white'>{item}</button>)}
+                                           className={`py-[10px] text-left pl-[60px] hover:bg-black w-full text-[#CCCCCC] focus:text-white relative duration-[400ms] ${!open && '-z-50 opacity-0'} `}>{item}</button>)}
       </div>}
     </div>
   )
