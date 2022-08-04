@@ -49,9 +49,10 @@ const Menu = () => {
         </header>
         <nav className={`h-screen bg-black.7 text-[#CCCCCC] pt-[20px] 
                         ${open ? 'left-[0px]':'left-[-275px]'} absolute duration-300`}>
-          {menu.map(item => <MenuOption icon={item.icon} 
+          {menu.map(item => <MenuOption key={item.title}
+                                        icon={item.icon} 
                                         text={item.title} 
-                                        subMenu={item.childrens ? item.childrens : null} /> )}        
+                                        subMenu={item.childrens && item.childrens} /> )}        
         </nav>
         <div className='Body flex justify-center items-center w-screen h-[calc(100%-50px)]'>
           <div className='Content'>

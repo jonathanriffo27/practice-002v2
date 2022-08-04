@@ -17,16 +17,16 @@ const MenuOption = ({icon, text, subMenu}:any) => {
         </div>
         <span className='flex-grow text-left self-center ml-[10px]'>{text}</span>
         {subMenu ? <div className='font-semibold stroke-1'>
-          <FontAwesomeIcon icon={faChevronRight} className={`h-[16px] w-[10px] text-[#CCCCCC] ${open ? 'rotate-90' : null}`} />
+          <FontAwesomeIcon icon={faChevronRight} className={`h-[16px] w-[10px] text-[#CCCCCC] ${open && 'rotate-90'}`} />
         </div> : null }          
       </button>
-      {subMenu ? <div
+      {subMenu && <div
         className={`bg-black.5 w-[275px] text-white z-10 duration-300 ${open ? 'h-auto' : 
                   'h-0 overflow-hidden'}`}>
-        {subMenu.map((item:any):any => <h1 className='py-[10px] pl-[60px] hover:bg-black 
-                                        w-full text-[#CCCCCC]'>{item}</h1>)}  
-        
-      </div>  : null }   
+        {subMenu.map((item:any):any => <h1 key={item}
+                                           className='py-[10px] pl-[60px] hover:bg-black 
+                                           w-full text-[#CCCCCC]'>{item}</h1>)}       
+      </div> }   
     </div>
   )
 }
