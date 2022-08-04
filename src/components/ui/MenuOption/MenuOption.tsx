@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faGear, faBars, faHouseChimney, faCarSide, faFileInvoiceDollar, faChevronRight
- } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import Dropdown from '../Dropdown';
 
 const MenuOption = ({icon, text, subMenu}:any) => {
   const [open, setOpen] = useState(false)
-
   return (
     <div className={`MenuOption w-[275px]`}>
       <button onClick={() => setOpen (!open)}
@@ -20,9 +18,8 @@ const MenuOption = ({icon, text, subMenu}:any) => {
           <FontAwesomeIcon icon={faChevronRight} className={`h-[16px] w-[10px] text-[#CCCCCC] ${open && 'rotate-90'}`} />
         </div> : null }          
       </button>
-      {subMenu && <div className={`bg-black.5 w-[275px] text-white transition-all duration-200 ${!open ? 'h-0' : 'h-[220px]'}`}>
-        {subMenu.map((item:any):any => <button key={item}
-                                           className={`py-[10px] text-left pl-[60px] hover:bg-black w-full text-[#CCCCCC] focus:text-white relative duration-[400ms] ${!open && '-z-50 opacity-0'} `}>{item}</button>)}
+      {subMenu && <div className={`bg-black.5 w-[275px] text-white duration-300 ${!open ? 'h-0' : 'h-[220px]'}`}>
+        {subMenu.map((item:any):any => <div key={item} className={`duration-300 ${!open ? 'opacity-0' : 'opacity-100'}`}>< Dropdown text={item} /></div>)}
       </div>}
     </div>
   )

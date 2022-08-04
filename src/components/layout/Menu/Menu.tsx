@@ -3,7 +3,7 @@ import Logo from "../../ui/Logo"
 import UserPic from "../../ui/UserPic"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faGear, faBars, faHouseChimney, faCarSide, faFileInvoiceDollar, faChevronRight
+  faGear, faBars, faHouseChimney, faCarSide, faFileInvoiceDollar
  } from '@fortawesome/free-solid-svg-icons';
 import MenuOption from '../../ui/MenuOption';
 import UserInfo from '../UserInfo';
@@ -30,7 +30,7 @@ const Menu = () => {
   },
 ]
   return (
-    <div className="Menu h-screen w-screen overflow-hidden">
+    <div className="Menu h-screen w-screen overflow-hidden bg-white">
         <header className={`flex items-center justify-between flex-wrap
                            bg-[#FFFFFF] h-[50px] pl-[20px] shadow-md`}>
             <div className="Left flex items-center">
