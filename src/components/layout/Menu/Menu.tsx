@@ -9,7 +9,8 @@ import MenuOption from '../../ui/MenuOption';
 import UserInfo from '../UserInfo';
 
 const Menu = () => {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
+
   const menu = [{
     title: 'Inicio',
     icon: faHouseChimney,   
@@ -30,10 +31,13 @@ const Menu = () => {
 ]
   return (
     <div className="Menu h-screen w-screen overflow-hidden">
-        <header className="flex items-center justify-between flex-wrap bg-[#FFFFFF] h-[50px] pl-[20px] shadow-md">
+        <header className={`flex items-center justify-between flex-wrap
+                           bg-[#FFFFFF] h-[50px] pl-[20px] shadow-md`}>
             <div className="Left flex items-center">
-                <div className='flex justify-center bg-white w-[30px] h-[30px] rounded cursor-pointer hover:border-2'>
-                  <FontAwesomeIcon icon={faBars} className="self-center h-[22px] w-[20px] text-[#959595]" onClick={() => setOpen (!open)} />
+                <div className={`flex justify-center items-center bg-white 
+                                w-[30px] h-[30px] rounded cursor-pointer hover:border-2`}>
+                  <FontAwesomeIcon icon={faBars} 
+                                   className="h-[22px] w-[20px] text-[#959595]" onClick={() => setOpen (!open)} />
                 </div>
                 <div className='ml-[25px]'>
                   <Logo width='143px' height='20px' />                
@@ -43,16 +47,15 @@ const Menu = () => {
               <UserPic width='40px' height='40px' />              
             </div>
         </header>
-        <nav className={`h-screen bg-black.7 text-[#CCCCCC] pt-[20px] ${open ? 'left-[0px]':'left-[-275px]'} absolute duration-300`}>
-            <div className='z-50'>
-              {menu.map(item => <MenuOption icon={item.icon} text={item.title} subMenu={item.childrens ? item.childrens : null} /> )}        
-            </div>
+        <nav className={`h-screen bg-black.7 text-[#CCCCCC] pt-[20px] 
+                        ${open ? 'left-[0px]':'left-[-275px]'} absolute duration-300`}>
+          {menu.map(item => <MenuOption icon={item.icon} 
+                                        text={item.title} 
+                                        subMenu={item.childrens ? item.childrens : null} /> )}        
         </nav>
         <div className='Body flex justify-center items-center w-screen h-[calc(100%-50px)]'>
           <div className='Content'>
-            <div className=' '>
-              <UserInfo nombre='Juan Pablo Ramirez' cargo='Facturacion' />
-            </div>
+            <UserInfo nombre='Juan Pablo Ramirez' cargo='Facturacion' />
           </div>
         </div>
     </div>
