@@ -10,6 +10,24 @@ import UserInfo from '../UserInfo';
 
 const Menu = () => {
   const [open, setOpen] = useState(true)
+  const menu = [{
+    title: 'Inicio',
+    icon: faHouseChimney,   
+  },
+  {
+    title: 'Maestros',
+    icon: faGear, 
+    childrens: ['Canales', 'Familias', 'Productos', 'Brokers', 'Usuarios']  
+  },
+  {
+    title: 'Procesos',
+    icon: faCarSide,  
+  },
+  {
+    title: 'Reportes',
+    icon: faFileInvoiceDollar,  
+  },
+]
   return (
     <div className="Menu h-screen w-screen overflow-hidden">
         <header className="flex items-center justify-between flex-wrap bg-[#FFFFFF] h-[50px] pl-[20px] shadow-md">
@@ -25,15 +43,14 @@ const Menu = () => {
               <UserPic width='40px' height='40px' />              
             </div>
         </header>
-        <div className='Body flex relative'>
-          <nav className={`h-screen bg-black opacity-70 text-[#CCCCCC] pt-[20px] ${open ? 'w-[0px]':'w-[275px]'} duration-300`}> 
-            <MenuOption icon='faHouseChimney' text='Inicio' />
-            <MenuOption icon='faHouseChimney' text='Maestros' />
-            <MenuOption icon='faHouseChimney' text='Procesos' />
-            <MenuOption icon='faHouseChimney' text='Reportes' />
-          </nav>
+        <nav className={`h-screen bg-black.7 text-[#CCCCCC] pt-[20px] ${open ? 'left-[0px]':'left-[-275px]'} absolute duration-300`}>
+            <div className='z-50'>
+              {menu.map(item => <MenuOption icon={item.icon} text={item.title} subMenu={item.childrens ? item.childrens : null} /> )}        
+            </div>
+        </nav>
+        <div className='Body flex justify-center items-center w-screen h-[calc(100%-50px)]'>
           <div className='Content'>
-            <div className='absolute left-[544px] top-[244px]'>
+            <div className=' '>
               <UserInfo nombre='Juan Pablo Ramirez' cargo='Facturacion' />
             </div>
           </div>

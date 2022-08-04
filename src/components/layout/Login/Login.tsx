@@ -11,8 +11,6 @@ const Login = () => {
         </div>
         <div className='mb-[5px]'>
             <InputText label='Email' width='303px' type='email' />
-        </div>
-        <div className='mb-[30px]'>
             <InputText label='Password' width='303px' type='password' />
         </div>
         <div className='mb-[30px]'>
