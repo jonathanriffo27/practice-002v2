@@ -11,6 +11,9 @@ module.exports = {
         'black.7': 'rgba(0, 0, 0, 0.7)',
         'black.5': 'rgba(0, 0, 0, 0.5)',
       },
+      fontFamily: {
+        Quicksand: ["Quicksand", "sans-serif"],
+      },
     },
   },
   plugins: [],

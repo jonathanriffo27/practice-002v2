@@ -37,27 +37,28 @@ const Menu = () => {
                 <div className={`flex justify-center items-center bg-white 
                                 w-[30px] h-[30px] rounded cursor-pointer hover:border-2`}>
                   <FontAwesomeIcon icon={faBars} 
-                                   className="h-[22px] w-[20px] text-[#959595]" onClick={() => setOpen (!open)} />
+                                   className="h-[22px] w-[20px] text-[#959595]" 
+                                   onClick={() => setOpen (!open)} />
                 </div>
-                <div className='ml-[25px]'>
+                <div className='ml-[25px] cursor-pointer'>
                   <Logo width='143px' height='20px' />                
                 </div>
             </div>
-            <div className='Right float-right mr-[20px]'>
+            <div className='Right float-right mr-[20px] cursor-pointer'>
               <UserPic width='40px' height='40px' />              
             </div>
         </header>
         <nav className={`h-screen bg-black.7 text-[#CCCCCC] pt-[20px] 
                         ${open ? 'left-[0px]':'left-[-275px]'} absolute duration-300`}>
+          <div className=''>
           {menu.map(item => <MenuOption key={item.title}
                                         icon={item.icon} 
                                         text={item.title} 
                                         subMenu={item.childrens && item.childrens} /> )}        
+          </div>                
         </nav>
-        <div className='Body flex justify-center items-center w-screen h-[calc(100%-50px)]'>
-          <div className='Content'>
-            <UserInfo nombre='Juan Pablo Ramirez' cargo='Facturacion' />
-          </div>
+        <div className='Content flex justify-center items-center w-screen h-[calc(100%-50px)]'>
+          <UserInfo nombre='Juan Pablo Ramirez' cargo='Facturacion' />
         </div>
     </div>
   )
