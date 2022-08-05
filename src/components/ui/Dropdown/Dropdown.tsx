@@ -1,10 +1,15 @@
+import { useContext } from "react";
 
+import UIContext from '../../../context/ui';
 
-const Dropdown = ({text}:any) => { 
+const Dropdown = ({text, onClick}:any) => { 
+  const { open, setOpen } = useContext(UIContext);
+  const handleClick = () => {
+    setOpen(!open)
+  }
   return (
-    <div className={`Dropdown py-[10px]  hover:bg-black text-[#CCCCCC] focus:text-white duration-700`}>
-        <button className='w-full text-left pl-[60px]'>{text}</button>
-    </div>
+    <button onClick={handleClick}
+            className='w-full text-left pl-[60px] py-[10px]  hover:bg-black text-[#CCCCCC] hover:text-white duration-700'>{text}</button>
   )
 }
 

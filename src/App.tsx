@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import Login from "./components/layout/Login";
-import Menu from "./components/layout/Menu";
+import Main from "./components/layout/Main";
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Menu />} />
+          <Route path="/" element={<Main />} />
         </Routes>
       </BrowserRouter>
     </div>
