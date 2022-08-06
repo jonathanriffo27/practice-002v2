@@ -7,25 +7,7 @@ import Header from '../../ui/Header';
 import UserInfo from '../UserInfo';
 import Body from '../Body';
 
-const Main = () => {
-  const menu = [{
-      title: 'Inicio',
-      icon: faHouseChimney,   
-    },
-    {
-      title: 'Maestros',
-      icon: faGear, 
-      childrens: ['Canales', 'Familias', 'Productos', 'Brokers', 'Usuarios']  
-    },
-    {
-      title: 'Procesos',
-      icon: faCarSide,  
-    },
-    {
-      title: 'Reportes',
-      icon: faFileInvoiceDollar,  
-    },
-  ]
+const Main = () => { 
   return (
     <div className="main h-screen w-screen overflow-hidden bg-white">
       <Header />
