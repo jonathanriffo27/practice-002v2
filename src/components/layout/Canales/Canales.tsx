@@ -1,6 +1,8 @@
 import { 
     faPlus, faAngleRight, faAngleLeft
-  } from '@fortawesome/free-solid-svg-icons';  
+  } from '@fortawesome/free-solid-svg-icons'; 
+import { useState } from 'react';
+
 import Menu from '../../ui/Menu';
 import Header from '../../ui/Header';
 import Body from '../Body';
@@ -8,8 +10,15 @@ import InputText from '../../ui/InputText';
 import Canal from '../../ui/Canal';
 import Button from '../../ui/Button';
 import ButtonPage from '../../ui/ButtonPage';
+import Modal from '../Modal';
 
 const Canales = () => {
+  const [modalOn, setModalOn] = useState(false)
+
+  const handleClick = () => {
+    setModalOn(!modalOn)
+  }
+
   return (
     <div className="main h-screen w-screen overflow-hidden bg-white">
       <Header />
@@ -28,7 +37,7 @@ const Canales = () => {
         </div>
         <div className='grid grid-cols-3 items-center w-[1220px] h-[60px] border-b border-[#CCCCCC]'>                
             <div>
-                <span>Mostrando 1 al 3 de 3 canales</span>
+                <span className='font-semibold'>Mostrando 1 al 3 de 3 canales</span>
             </div>
             <div className='flex justify-center items-center gap-[3px]'>
                 <ButtonPage icon={faAngleLeft} color='#959595' /> 
@@ -38,10 +47,11 @@ const Canales = () => {
                 <ButtonPage icon={faAngleRight} color='#959595' /> 
             </div>
             <div className='flex justify-end'>
-                <Button icon={faPlus} width='40px' />
+                <Button icon={faPlus} width='40px' onClick={handleClick} />
             </div>
         </div>
       </Body>
+      {modalOn && <Modal onClick={handleClick} /> }
     </div>
   )
 }
