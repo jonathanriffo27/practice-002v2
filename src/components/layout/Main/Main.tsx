@@ -1,6 +1,3 @@
-import { 
-  faGear, faHouseChimney, faCarSide, faFileInvoiceDollar
-} from '@fortawesome/free-solid-svg-icons';
 
 import Menu from '../../ui/Menu';
 import Header from '../../ui/Header';
