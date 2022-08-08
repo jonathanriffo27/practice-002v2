@@ -11,45 +11,47 @@ import Canal from '../../ui/Canal';
 import Button from '../../ui/Button';
 import ButtonPage from '../../ui/ButtonPage';
 import Modal from '../Modal';
+import Content from '../Content';
+import Row from '../Row';
+import Col from '../Col';
 
 const Canales = () => {
   const [modalOn, setModalOn] = useState(false)
-
-  const handleClick = () => {
-    setModalOn(!modalOn)
-  }
-
+  const handleClick = () => setModalOn(!modalOn)
+  
   return (
-    <div className="main h-screen w-screen overflow-hidden bg-white">
+    <div className="main h-screen w-screen overflow-hidden bg-white transition-all duration-300">
       <Header />
       <Body>
         <Menu />
-        <div className='flex justify-center items-center w-[1220px] h-[60px] border-b border-[#CCCCCC]'>
-            <span className='text-center text-[32px] font-bold w-full'>Canales</span>
-        </div>
-        <div className='flex justify-center items-center w-[1220px] h-[80px] border-b border-[#CCCCCC]'>                
+        <Content>
+          <Row>
+            <span className='text-[32px] font-bold'>Canales</span>
+          </Row>
+          <Row height='h-[80px]' >
             <InputText label='Buscar' width='439px' type='email' icon='buscar' />
-        </div>
-        <div className='flex flex-col flex-grow justify-center items-center w-[1220px] border-b border-[#CCCCCC] gap-[5px]'>                
+          </Row>
+          <Row height='flex-grow gap-[5px]' >
             <Canal text='Corredora de Seguros' />
             <Canal text='tarjeta de Retail' />
             <Canal text='Pagina Web' />
-        </div>
-        <div className='grid grid-cols-3 items-center w-[1220px] h-[60px] border-b border-[#CCCCCC]'>                
-            <div>
+          </Row>
+          <Row grid='grid-cols-3'>
+              <Col justify='justify-start'>
                 <span className='font-semibold'>Mostrando 1 al 3 de 3 canales</span>
-            </div>
-            <div className='flex justify-center items-center gap-[3px]'>
+              </Col>
+              <Col gap='gap-[3px]'>
                 <ButtonPage icon={faAngleLeft} color='#959595' /> 
                 <ButtonPage text='1'/> 
                 <ButtonPage text='2'/> 
                 <ButtonPage text='3'/> 
                 <ButtonPage icon={faAngleRight} color='#959595' /> 
-            </div>
-            <div className='flex justify-end'>
+              </Col>
+              <Col justify='justify-end' >
                 <Button icon={faPlus} width='40px' onClick={handleClick} />
-            </div>
-        </div>
+              </Col>
+          </Row>
+        </Content>
       </Body>
       {modalOn && <Modal onClick={handleClick} /> }
     </div>
