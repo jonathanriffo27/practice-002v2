@@ -5,15 +5,15 @@ import { useState } from 'react';
 
 import Menu from '../../ui/Menu';
 import Header from '../../ui/Header';
-import Body from '../Body';
+import Body from '../../layout/Body';
 import InputText from '../../ui/InputText';
 import Canal from '../../ui/Canal';
 import Button from '../../ui/Button';
 import ButtonPage from '../../ui/ButtonPage';
-import Modal from '../Modal';
-import Content from '../Content';
-import Row from '../Row';
-import Col from '../Col';
+import Modal from '../../ui/Modal';
+import Content from '../../layout/Content';
+import Row from '../../layout/Row';
+import Col from '../../layout/Col';
 
 const Canales = () => {
   const [modalOn, setModalOn] = useState(false)

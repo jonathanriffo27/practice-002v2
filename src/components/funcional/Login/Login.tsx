@@ -1,13 +1,19 @@
 import { useNavigate } from "react-router-dom"
+import {useContext} from 'react'
 
 import Logo from "../../ui/Logo"
 import InputText from "../../ui/InputText"
 import Button from "../../ui/Button"
 import Link  from "../../ui/Link"
 
+import UIContext from "../../../context/ui"
+
 const Login = () => {
+  const {user, setUser} = useContext(UIContext)
   const navigate = useNavigate();
+
   const handleClick = () => {
+    setUser({...user, email: 'jonathan.riffo7@gamil.com'})
     navigate('/')
   }
   return (

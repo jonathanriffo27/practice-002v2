@@ -1,8 +1,8 @@
 
 import Menu from '../../ui/Menu';
 import Header from '../../ui/Header';
-import UserInfo from '../UserInfo';
-import Body from '../Body';
+import UserInfo from '../../layout/UserInfo';
+import Body from '../../layout/Body';
 
 const Main = () => { 
   return (

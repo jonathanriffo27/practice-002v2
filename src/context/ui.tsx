@@ -5,6 +5,13 @@ const UIContext = createContext<any>(null);
 const UIProvider = ({ children }: any) => {
   const [open, setOpen] = useState(false)
   const [showMenu, setShowMenu] = useState(false);
+  const [user, setUser] = useState({
+    email: '',
+    name: '',
+    paternalLastName: '',
+    maternalLastName: '',
+    grade: ''
+  })
 
   return (
     <UIContext.Provider
@@ -12,7 +19,9 @@ const UIProvider = ({ children }: any) => {
         showMenu,
         setShowMenu,
         open,
-        setOpen
+        setOpen,
+        user,
+        setUser
       }}
     >
       {children}
