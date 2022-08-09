@@ -13,14 +13,14 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setUser({...user, email: 'jonathan.riffo7@gamil.com'})
-    navigate('/')
+    // setUser({...user, email: 'jonathan.riffo7@gamil.com'})
+    // navigate('/')
   }
   return (
     <div className="Login flex flex-col justify-center items-center w-screen h-screen gap-[30px]">
       <Logo width='303px' height='43px' />
       <div className='flex flex-col gap-[5px]'>
-        <InputText label='Email' width='303px' type='email' />
+        <InputText label='Email' width='303px' type='email' onChange={setUser} user={user} />
         <InputText label='Password' width='303px' type='password' />
       </div>
       <Button text='Ingresar' width='250px' onClick={handleClick} />

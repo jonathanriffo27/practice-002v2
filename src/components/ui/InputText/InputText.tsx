@@ -4,12 +4,20 @@ import {
 
 import Icon from '../Icon'
 
-const InputText = ({label, width, type, icon}: any) => {
+const InputText = ({label, width, type, icon, onChange, user}: any) => {
+  const handleChange = (e:any) => {
+    onChange({
+      ...user, 
+      [e.email]: e.target.value
+    })
+  }
   return (
     <div style={{width}} className={`flex justify-center items-center relative`}>
         <input type={type} 
-            placeholder=' '
-            className={`w-full border border-[#CCCCCC] ${icon ? 'rounded-l-[5px]' : 'rounded-[5px]' }  h-[60px] pl-[15px] pt-[17px] peer placeholder-transparent outline-none focus:border-2 focus:border-[#99a0b3] focus:bg-[#fdffdf]`} />
+               name={label}
+               onChange={handleChange}
+               placeholder=' '
+               className={`w-full border border-[#CCCCCC] ${icon ? 'rounded-l-[5px]' : 'rounded-[5px]' }  h-[60px] pl-[15px] pt-[17px] peer placeholder-transparent outline-none focus:border-2 focus:border-[#99a0b3] focus:bg-[#fdffdf]`} />
         <label htmlFor="" 
             className={`left-[15px] text-[12px] top-[4px] text-[#555555]
             peer-placeholder-shown:text-[16px]
