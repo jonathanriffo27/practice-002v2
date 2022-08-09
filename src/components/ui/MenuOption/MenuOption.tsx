@@ -41,8 +41,7 @@ const MenuOption = ({ icon, text, subMenu, onClick, height }: any) => {
           {subMenu.map((item: any): any => (
             <div key={item.title}
                  className={`duration-300 
-                 ${!showMenu ? "opacity-0" : "opacity-100"}
-                 `}>
+                 ${!showMenu ? "opacity-0" : "opacity-100"}`}>
               <Dropdown text={item.title} onClick={item.path} />
             </div>))}
         </div>)}

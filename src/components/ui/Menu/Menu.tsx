@@ -52,7 +52,7 @@ const Menu = () => {
     }
   ]
   return (
-    <nav className={`h-[calc(100%-50px)] bg-black.7 text-[#CCCCCC] pt-[20px] absolute duration-300
+    <nav className={`h-[calc(100%-50px)] bg-black.7 text-[#CCCCCC] pt-[20px] absolute duration-300 z-40
             ${open ? 'left-[0px]':'left-[-275px]'}`}>
       {menu.map(item => <MenuOption key={item.title}
                                     icon={item.icon} 
