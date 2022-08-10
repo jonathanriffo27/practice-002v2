@@ -1,5 +1,5 @@
 import Link from "../../ui/Link"
-import UserPic from "../../ui/UserPic"
+import UserPic from "../UserPic"
 
 const UserInfo = ({nombre, cargo, height}:any) => {
   return (

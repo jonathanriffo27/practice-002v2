@@ -1,4 +1,4 @@
-import UserPic from "../../ui/UserPic";
+import UserPic from "../UserPic"
 
 const UserButton = () => {
   return (

@@ -1,6 +1,6 @@
 import Logo from "../Logo";
 import MenuButton from "../MenuButton";
-import UserButton from "../UserButton/UserButton";
+import UserButton from "../../funcional/UserButton/UserButton";
 
 const Header = () => {
   return (

@@ -2,7 +2,7 @@ import {useContext} from 'react';
 
 import Menu from '../../ui/Menu';
 import Header from '../../ui/Header';
-import UserInfo from '../../layout/UserInfo';
+import UserInfo from '../UserInfo';
 import Body from '../../layout/Body';
 
 import UIContext from "../../../context/ui"

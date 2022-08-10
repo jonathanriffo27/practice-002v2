@@ -29,7 +29,7 @@ const InputText = ({ label, width, type, icon, onChange, value }: any) => {
       </label>
       {icon && (
         <button 
-              className="flex justify-center items-center rounded-r-[5px] w-[40px] h-[60px] bg-[#ededed] border border-[#CCCCCC] active:border-[#99a0b3] active:border-2 ">
+              className="flex justify-center items-center rounded-r-[5px] w-[40px] h-[60px] bg-[#ededed] border-y border-r border-[#CCCCCC] active:border-[#99a0b3] active:border-2 ">
           <Icon icon={faMagnifyingGlass} color="#959595" fontSize="20px" />
         </button>)}
     </div>
