@@ -5,13 +5,7 @@ const UIContext = createContext<any>(null);
 const UIProvider = ({ children }: any) => {
   const [open, setOpen] = useState(false)
   const [showMenu, setShowMenu] = useState(false);
-  const [user, setUser] = useState({
-    email: '',
-    name: '',
-    paternalLastName: '',
-    maternalLastName: '',
-    grade: ''
-  })
+  const [user, setUser] = useState([])
 
   return (
     <UIContext.Provider

@@ -15,7 +15,7 @@ const Main = () => {
       <Header />
       <Body>
         <Menu />
-        <UserInfo nombre={user.email} cargo='Facturacion' />
+        <UserInfo nombre={`${user[0].name.first} ${user[0].name.last}`} cargo={user[0].name.title} />
       </Body>
     </div>
   )

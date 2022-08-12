@@ -7,8 +7,7 @@ import UIContext from '../../../context/ui'
 
 const Switch = () => {
     const {user} = useContext(UIContext)
-    const {email} = user;
-  return  email ? <Main /> : <Login />;
+  return  user.length === 1 ? <Main /> : <Login />;
 }
 
 export default Switch
