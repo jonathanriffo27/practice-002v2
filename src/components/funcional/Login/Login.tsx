@@ -26,11 +26,13 @@ const Login = () => {
         <InputText label='Email' 
                    width='303px' 
                    type='email' 
+                   onKeyUp={handleClick}
                    onChange={handleChangeEmail} 
                    value={login.email} />
         <InputText label='Password' 
                    width='303px' 
                    type='password' 
+                   onKeyUp={handleClick}
                    onChange={handleChangePassword} 
                    value={login.password} />
       </div>

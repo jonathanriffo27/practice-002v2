@@ -4,7 +4,7 @@ export const Users = [
     {
       "gender": "male",
       "name": {
-        "title": "Monsieur",
+        "title": "RRHH",
         "first": "Iwan",
         "last": "Bonnet"
       },
@@ -60,7 +60,7 @@ export const Users = [
     {
       "gender": "male",
       "name": {
-        "title": "Mr",
+        "title": "Facturacion",
         "first": "Borislav",
         "last": "Zelenović"
       },
@@ -116,7 +116,7 @@ export const Users = [
     {
       "gender": "female",
       "name": {
-        "title": "Miss",
+        "title": "Finanzas",
         "first": "Teresa",
         "last": "Chapman"
       },
@@ -172,7 +172,7 @@ export const Users = [
     {
       "gender": "male",
       "name": {
-        "title": "Mr",
+        "title": "CEO",
         "first": "Peetu",
         "last": "Ranta"
       },
