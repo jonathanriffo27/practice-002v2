@@ -9,6 +9,7 @@ const InputText = ({ label, width, type, icon, onChange, value }: any) => {
       style={{ width }}
       className={`flex justify-center items-center relative`}>
       <input
+        id={label}
         type={type}
         name={label}
         onChange={onChange}
@@ -18,7 +19,7 @@ const InputText = ({ label, width, type, icon, onChange, value }: any) => {
           icon ? "rounded-l-[5px]" : "rounded-[5px]"
         }  h-[60px] pl-[15px] pt-[17px] peer placeholder-transparent outline-none focus:border-2 focus:border-[#99a0b3] focus:bg-[#fdffdf] required:border-red-500`}/>
       <label
-        htmlFor=""
+        htmlFor={label}
         className="left-[15px] text-[12px] top-[4px] text-[#555555]
             peer-placeholder-shown:text-[16px]
             peer-placeholder-shown:top-[17px] 
