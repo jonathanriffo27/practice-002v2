@@ -1,4 +1,5 @@
-import {useContext} from 'react';
+// import {useContext} from 'react';
+import { useAppSelector } from '../../../redux/hooks';
 
 import Menu from '../../ui/Menu';
 import Header from '../../ui/Header';
@@ -8,14 +9,14 @@ import Body from '../../layout/Body';
 import UIContext from "../../../context/ui"
 
 const Main = () => { 
-  const {user} = useContext(UIContext)
-
+  // const {user} = useContext(UIContext)
+  const {user} = useAppSelector((state) => state.userSlice);
   return (
     <div className="main h-screen w-screen overflow-hidden bg-white">
       <Header />
       <Body>
         <Menu />
-        <UserInfo nombre={`${user[0].name.first} ${user[0].name.last}`} cargo={user[0].name.title} />
+        <UserInfo nombre={`${user.name.first} ${user.name.last}`} cargo={user.name.title} />
       </Body>
     </div>
   )

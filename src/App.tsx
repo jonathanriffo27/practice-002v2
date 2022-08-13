@@ -6,18 +6,23 @@ import {
 import Canales from "./components/funcional/Canales";
 import Switch from "./components/funcional/Switch";
 
+import store from "../src/redux/store"
+import { Provider } from "react-redux";
+
 
 function App() {
 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/canales" element={<Canales />} />
-          <Route path="/" element={<Switch />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/canales" element={<Canales />} />
+            <Route path="/" element={<Switch />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </Provider>
   )
 }
 

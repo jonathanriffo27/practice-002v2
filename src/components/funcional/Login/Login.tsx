@@ -1,23 +1,33 @@
 import {useContext, useState} from 'react'
 import {Users} from "../../../data/users"
+import { useAppDispatch } from '../../../redux/hooks'
+import { setUser } from '../../../redux/slices/userSlice'
 
 import Logo from "../../ui/Logo"
 import InputText from "../../ui/InputText"
 import Button from "../../ui/Button"
 import Link  from "../../ui/Link"
 
-import UIContext from "../../../context/ui"
+// import UIContext from "../../../context/ui"
 
 const Login = () => {
+const dispatch = useAppDispatch();
+
   const [login, setLogin] = useState({ email:'', password:''});
   const [mensaje, setMensaje] = useState('')
-  const {user, setUser} = useContext(UIContext)
 
   const handleChangeEmail = (e:any) => setLogin({...login, email: e.target.value })   
   const handleChangePassword = (e:any) => setLogin({...login, password: e.target.value})
-  const findUser = Users.filter(item => item.email === login.email) 
   const handleClick = () => {
-    (login.email.length !== 0 && login.password.length !== 0) ? (findUser.length === 0 ? setMensaje('Usuario inexistente o contraseña incorrecta') : findUser[0].login.password !== login.password ? setMensaje('Usuario inexistente o contraseña incorrecta') : setUser(findUser)) : setMensaje('Complete todos los campos')
+    const findUser = Users.filter(item => item.email === login.email)[0] 
+    
+    if(login.email.length === 0 || login.password.length === 0){
+      return setMensaje('Complete todos los campos')
+    }
+    if(findUser && findUser.login.password === login.password){
+        return dispatch(setUser(findUser))
+    } 
+    return setMensaje('Usuario inexistente o contraseña incorrecta')
   }
   return (
     <div className="Login flex flex-col justify-center items-center w-screen h-screen gap-[30px]">
