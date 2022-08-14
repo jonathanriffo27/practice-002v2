@@ -3,12 +3,11 @@ import {
   faGear, faHouseChimney, faCarSide, faFileInvoiceDollar
 } from '@fortawesome/free-solid-svg-icons';
 
-import UIContext from '../../../context/ui';
+// import UIContext from '../../../context/ui';
 
 import MenuOption from "../MenuOption"
 
-const Menu = () => {
-  const { open } = useContext(UIContext);
+const Menu = ({showMenu, setShowMenu}:any) => {
   const menu = [{
       title: 'Inicio',
       icon: faHouseChimney, 
@@ -17,7 +16,7 @@ const Menu = () => {
     {
       title: 'Maestros',
       icon: faGear, 
-      path: '/',   
+      path: '',   
       childrens: [
         {
           title: 'Canales',
@@ -43,23 +42,26 @@ const Menu = () => {
     {
       title: 'Procesos',
       icon: faCarSide,
-      path: '/'
+      path: ''
     },
     {
       title: 'Reportes',
       icon: faFileInvoiceDollar, 
-      path: '/' 
+      path: '' 
     }
   ]
   return (
     <nav className={`h-[calc(100%-50px)] bg-black.7 text-[#CCCCCC] pt-[20px] absolute duration-300 z-40
-            ${open ? 'left-[0px]':'left-[-275px]'}`}>
+            ${showMenu ? 'left-[0px]':'left-[-275px]'}`}>
       {menu.map(item => <MenuOption key={item.title}
                                     icon={item.icon} 
                                     text={item.title} 
                                     subMenu={item.childrens}
                                     onClick={item.path}
-                                    height={item.childrens?.length} /> )}               
+                                    height={item.childrens?.length}
+                                    showMenu={showMenu}
+                                    setShowMenu={setShowMenu}
+                                    /> )}               
     </nav>
   )
 }

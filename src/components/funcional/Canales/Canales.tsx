@@ -14,16 +14,18 @@ import Modal from '../../ui/Modal';
 import Content from '../../layout/Content';
 import Row from '../../layout/Row';
 import Col from '../../layout/Col';
+import { setShowMenu } from '../../../redux/slices/menuSlice';
 
 const Canales = () => {
   const [modalOn, setModalOn] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
   const handleClick = () => setModalOn(!modalOn)
   
   return (
     <div className="main h-screen w-screen overflow-hidden bg-white transition-all duration-300">
-      <Header />
+      <Header showMenu={showMenu} setShowMenu={setShowMenu} />
       <Body>
-        <Menu />
+        <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
         <Content>
           <Row>
             <span className='text-[32px] font-bold'>Canales</span>
@@ -53,7 +55,7 @@ const Canales = () => {
           </Row>
         </Content>
       </Body>
-      {modalOn && <Modal onClick={handleClick} /> }
+      {modalOn && <Modal onClick={handleClick} />}
     </div>
   )
 }

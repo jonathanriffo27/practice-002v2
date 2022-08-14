@@ -1,16 +1,16 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import { useNavigate } from "react-router-dom"
 
 
-import UIContext from '../../../context/ui';
+// import UIContext from '../../../context/ui';
 
-const Dropdown = ({text, onClick}:any) => { 
+const Dropdown = ({text, onClick, showMenu, setShowMenu, showSubMenu, setShowSubMenu}:any) => { 
   const navigate = useNavigate();
-  const { open, setOpen } = useContext(UIContext);
-  const { showMenu, setShowMenu } = useContext(UIContext);
+  // const { open, setOpen } = useContext(UIContext);
+  // const { showMenu, setShowMenu } = useContext(UIContext);
   const handleClick = () => {
-    setOpen(!open)
     setShowMenu(!showMenu)
+    setShowSubMenu(!showSubMenu)
     navigate(onClick)
   }
   return (

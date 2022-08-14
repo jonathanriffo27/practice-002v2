@@ -1,7 +1,7 @@
 import {useContext, useState} from 'react'
 import {Users} from "../../../data/users"
 import { useAppDispatch } from '../../../redux/hooks'
-import { setUser } from '../../../redux/slices/userSlice'
+import { setUser, validateUser } from '../../../redux/slices/userSlice'
 
 import Logo from "../../ui/Logo"
 import InputText from "../../ui/InputText"
@@ -21,13 +21,12 @@ const dispatch = useAppDispatch();
   const handleClick = () => {
     const findUser = Users.filter(item => item.email === login.email)[0] 
     
-    if(login.email.length === 0 || login.password.length === 0){
-      return setMensaje('Complete todos los campos')
-    }
-    if(findUser && findUser.login.password === login.password){
-        return dispatch(setUser(findUser))
-    } 
-    return setMensaje('Usuario inexistente o contraseña incorrecta')
+    // if(login.email.length === 0 || login.password.length === 0){
+    //   return setMensaje('Complete todos los campos')
+    // }
+    dispatch(validateUser(login.email, login.password))
+  
+    // return setMensaje('Usuario inexistente o contraseña incorrecta')
   }
   return (
     <div className="Login flex flex-col justify-center items-center w-screen h-screen gap-[30px]">

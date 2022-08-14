@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {Users} from "../../data/users"
 
 const initialState = {
   list: [],
@@ -79,3 +80,11 @@ export const userSlice = createSlice({
 export const {setUserList, setUser, resetUser} = userSlice.actions;
 
 export default userSlice.reducer;
+
+export const validateUser = (email: string, password: string) => (dispatch: any) => { 
+  const findUser = Users.filter(item => item.email === email)[0]
+  if(findUser && findUser.login.password === password){
+      return dispatch(setUser(findUser))
+  } 
+  return 'Usuario inexistente o contraseña incorrecta'
+ }

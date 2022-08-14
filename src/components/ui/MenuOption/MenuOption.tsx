@@ -1,18 +1,18 @@
-import { useContext } from "react";
+import { useState } from "react";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom"
 
-import UIContext from "../../../context/ui";
+// import UIContext from "../../../context/ui";
 
 import Dropdown from "../Dropdown";
 import Icon from "../Icon";
 
-const MenuOption = ({ icon, text, subMenu, onClick, height }: any) => {
+const MenuOption = ({ icon, text, subMenu, onClick, height, showMenu, setShowMenu }: any) => {
   const navigate = useNavigate();
-  const { open, setOpen } = useContext(UIContext);
-  const { showMenu, setShowMenu } = useContext(UIContext);
+  const [showSubMenu, setShowSubMenu] = useState(false)
+  // const { showMenu, setShowMenu } = useContext(UIContext);
   const handleClick = () => {
-    !subMenu ? setOpen(!open) : setShowMenu(!showMenu);
+    !subMenu ? setShowMenu(!showMenu) : setShowSubMenu(!showSubMenu);
     navigate(onClick)
   }
   return (
@@ -29,20 +29,27 @@ const MenuOption = ({ icon, text, subMenu, onClick, height }: any) => {
         </div>
         <span className="flex-grow text-left self-center ml-[10px]">{text}</span>
         {subMenu && (
-          <div className={`duration-300 ${showMenu && "rotate-90"}`}>
+          <div className={`duration-300 ${showSubMenu && "rotate-90"}`}>
             <Icon icon={faChevronRight} 
                   color="#CCCCCC" 
                   fontSize="17px" />
           </div>)}
       </button>
       {subMenu && (
-        <div style={!showMenu ? {height: '0'} : {height: height*40+20}}
+        <div style={!showSubMenu ? {height: '0'} : {height: height*40+20}}
               className={`bg-black.5 w-[275px] text-white duration-300`}>
           {subMenu.map((item: any): any => (
             <div key={item.title}
                  className={`duration-300 
-                 ${!showMenu ? "opacity-0" : "opacity-100"}`}>
-              <Dropdown text={item.title} onClick={item.path} />
+                 ${!showSubMenu ? "opacity-0" : "opacity-100"}`}>
+              <Dropdown text={item.title} 
+                        onClick={item.path}
+                        showMenu={showMenu} 
+                        setShowMenu={setShowMenu}
+                        showSubMenu={showSubMenu}
+                        setShowSubMenu={setShowSubMenu}
+                        />
+
             </div>))}
         </div>)}
     </div>
