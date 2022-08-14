@@ -20,9 +20,9 @@ const InputText = ({ label, width, type, icon, onChange, value, onKeyUp }: any) 
         onChange={onChange}
         value={value}
         placeholder=" "
-        className={`w-full border border-[#CCCCCC] ${
-          icon ? "rounded-l-[5px]" : "rounded-[5px]"
-        }  h-[60px] pl-[15px] pt-[17px] peer placeholder-transparent outline-none focus:border-2 focus:border-[#99a0b3] focus:bg-[#fdffdf] required:border-red-500`}/>
+        className={`w-full border border-[#CCCCCC] 
+        ${icon ? "rounded-l-[5px]" : "rounded-[5px]"}  
+        h-[60px] pl-[15px] pt-[17px] peer placeholder-transparent outline-none focus:border-2 focus:border-[#99a0b3] focus:bg-[#fdffdf] required:border-red-500`}/>
       <label
         htmlFor={label}
         className="left-[15px] text-[12px] top-[4px] text-[#555555]

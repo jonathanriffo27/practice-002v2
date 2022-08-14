@@ -1,5 +1,4 @@
 
-
 export const Users = [
     {
       "gender": "male",

@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import { 
     faPlus, faAngleRight, faAngleLeft
   } from '@fortawesome/free-solid-svg-icons'; 
-import { useState } from 'react';
 
 import Menu from '../../ui/Menu';
 import Header from '../../ui/Header';
@@ -14,7 +14,6 @@ import Modal from '../../ui/Modal';
 import Content from '../../layout/Content';
 import Row from '../../layout/Row';
 import Col from '../../layout/Col';
-import { setShowMenu } from '../../../redux/slices/menuSlice';
 
 const Canales = () => {
   const [modalOn, setModalOn] = useState(false)

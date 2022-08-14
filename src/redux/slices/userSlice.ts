@@ -59,6 +59,7 @@ const initialState = {
     },
     "nat": ""
   },
+  error: '',
 };
 
 export const userSlice = createSlice({
@@ -73,18 +74,23 @@ export const userSlice = createSlice({
         },
         resetUser: (state:any) => {
             state.user = initialState.user;
+        },
+        setError: (state: any, action: PayloadAction<any>) => { 
+          state.error = action.payload;
         }
     }
 }) 
 
-export const {setUserList, setUser, resetUser} = userSlice.actions;
+export const {setUserList, setUser, resetUser, setError} = userSlice.actions;
 
 export default userSlice.reducer;
 
 export const validateUser = (email: string, password: string) => (dispatch: any) => { 
   const findUser = Users.filter(item => item.email === email)[0]
+  if(!findUser || findUser.login.password !== password){
+    return dispatch(setError('Usuario o contraseña incorrecta'))
+  }
   if(findUser && findUser.login.password === password){
       return dispatch(setUser(findUser))
-  } 
-  return 'Usuario inexistente o contraseña incorrecta'
+  }
  }

@@ -1,6 +1,6 @@
 import Logo from "../Logo";
-import MenuButton from "../MenuButton";
-import UserButton from "../../funcional/UserButton/UserButton";
+import { MenuButton } from "../Menu/Menu";
+import { UserButton } from "../../funcional/User";
 
 const Header = ({showMenu, setShowMenu}:any) => {
   return (

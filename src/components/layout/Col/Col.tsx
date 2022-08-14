@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Col = ({children, justify='justify-center', gap}:any) => {
   return (

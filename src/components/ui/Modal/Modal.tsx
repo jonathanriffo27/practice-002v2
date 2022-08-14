@@ -2,7 +2,6 @@ import Button from "../Button"
 import CloseButton from "../CloseButton/CloseButton"
 import InputText from "../InputText"
 
-
 const Modal = ({onClick}:any) => {
   return (
     <div 
